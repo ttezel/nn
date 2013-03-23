@@ -1,0 +1,21 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.8.8/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'test' ]
+2 info using npm@1.1.59
+3 info using node@v0.8.8
+4 verbose read json /Users/tolga/development/nn/test/package.json
+5 error Error: ENOENT, open '/Users/tolga/development/nn/test/package.json'
+6 error If you need help, you may report this log at:
+6 error     <http://github.com/isaacs/npm/issues>
+6 error or email it to:
+6 error     <npm-@googlegroups.com>
+7 error System Darwin 12.2.0
+8 error command "/usr/local/Cellar/node/0.8.8/bin/node" "/usr/local/bin/npm" "test"
+9 error cwd /Users/tolga/development/nn/test
+10 error node -v v0.8.8
+11 error npm -v 1.1.59
+12 error path /Users/tolga/development/nn/test/package.json
+13 error code ENOENT
+14 error errno 34
+15 verbose exit [ 34, true ]

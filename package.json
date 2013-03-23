@@ -1,0 +1,23 @@
+{
+  "name": "nn",
+  "version": "0.0.0",
+  "description": "Simple, flexible neural network for node.js",
+  "main": "lib/nn.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec -t 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ttezel/nn"
+  },
+  "keywords": [
+    "neural",
+    "net",
+    "network"
+  ],
+  "author": "Tolga Tezel",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "~1.8.2"
+  }
+}
