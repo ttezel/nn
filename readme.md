@@ -31,9 +31,10 @@ var output = net.send([0.1, 0.2])
 
 ###`nn(opts)`
 
-Creates a Neural Network instance. Pass in an optional `opts` object to configure the instance. The default configuration is shown below. Any values specified in `opts` will override the corresponding defaults.
+Creates a Neural Network instance. Pass in an optional `opts` object to configure the instance. Any values specified in `opts` will override the corresponding defaults.
 
-```
+The default configuration is shown below:
+```javascrpt
 {
     // hidden layers eg. [ 4, 2 ] => 2 hidden layers, with 4 neurons in the first, and 3 in the second.
     layers: [ 3 ],
