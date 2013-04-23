@@ -1,6 +1,6 @@
 #`nn`
 
-#Simple, easy to use Neural Network for node.js
+#Simple, fast Neural Network for node.js
 
 ##Install
 ```
@@ -13,19 +13,56 @@ var nn = require('nn')
 
 var net = nn()
 
-// or with input/output arrays
-net.train({ input: [1, 2, 3], output: [2, 4, 6] })
+// train the neural network with input/output sets
+net.train({ input: [1, 2, 3], output: [0, 1, 0] })
 
-// or train in bulk
+// or train in bulk with an array of input/output sets
 net.train([
-    { input: [0.13, 1.4, 0.6], output: [4.1, 1.2, 6.8] },
-    { input: [0.8, 0.6, 4.4], output: [0.9, 12, 5.4] },
+    { input: [0.1, 0.4, 0.6], output: [0.18, 0.2, 0.82] },
+    { input: [0.8, 0.6, 0.4], output: [0.9, 0.12, 0.054] },
     ...
 ])
 
-// send it new input and see its output
+// send it an input array to see its trained output
 var output = net.send([0.1, 0.2])
 ```
+
+##API
+
+###`nn(opts)`
+
+Creates a Neural Network instance. Pass in an optional `opts` object to configure the instance. The default configuration is shown below. Any values specified in `opts` will override the corresponding defaults.
+
+```
+{
+    // hidden layers eg. [ 4, 2 ] => 2 hidden layers, with 4 neurons in the first, and 3 in the second.
+    layers: [ 3 ],
+    // initial weight on each connection
+    weight: 0.1,
+    // training epochs to perform on the training data
+    iterations: 2000,
+    // minimum acceptable error threshold
+    errorThresh: 0.005,
+    // activation function ('logistic' and 'hyperbolic' supported)
+    activation: 'logistic',
+    // learning rate
+    learningRate: 0.3,
+    // learning momentum
+    momentum: 0.1,
+    // initial bias value for each neuron
+    bias: 0.1,
+    // logging frequency to show training progress. 0 = never, 10 = every 10 iterations.
+    log: 0   
+}
+```
+
+###`.train(trainingData)`
+
+Train your `nn` instance, using `trainingData`. You can pass in a single training entry as an object with `input` and `output` keys, or an array of training entries. By default, `nn` will perform 2000 epochs of training on the data passed in, or less if it manages to achieve an error margin of less than `errorThresh` on the data.
+
+###`.send(input)`
+
+Send your `nn` instance input data to see its output. Typically you'll want to call this function after training your instance.
 
 -------
 
