@@ -36,7 +36,7 @@ Creates a Neural Network instance. Pass in an optional `opts` object to configur
 The default configuration is shown below:
 ```javascript
 {
-    // hidden layers eg. [ 4, 2 ] => 2 hidden layers, with 4 neurons in the first, and 3 in the second.
+    // hidden layers eg. [ 4, 3 ] => 2 hidden layers, with 4 neurons in the first, and 3 in the second.
     layers: [ 3 ],
     // initial weight on each connection
     weight: 0.1,
