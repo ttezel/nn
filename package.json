@@ -1,6 +1,6 @@
 {
   "name": "nn",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Simple, flexible neural network for node.js",
   "main": "lib/nn.js",
   "scripts": {
@@ -13,7 +13,8 @@
   "keywords": [
     "neural",
     "net",
-    "network"
+    "network",
+    "AI"
   ],
   "author": "Tolga Tezel",
   "license": "MIT",
