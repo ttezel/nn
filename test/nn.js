@@ -6,7 +6,6 @@ describe('nn', function() {
     it('creates weights/biases matrices properly', function (done) {
         var net = nn({
             layers: [ 5, 4 ],
-            log: 1,
             iterations: 2
         })
 
@@ -31,21 +30,36 @@ describe('nn', function() {
 
     it('trains AND correctly', function (done) {
         var net = nn({
-          layers: [3],
           log: 100
         })
 
-        net.train([
+        var trainingData = [
           { input: [ 0, 0 ], output: [ 0 ] },
           { input: [ 0, 1 ], output: [ 0 ] },
           { input: [ 1, 0 ], output: [ 0 ] },
           { input: [ 1, 1 ], output: [ 1 ] }
-        ])
+        ];
 
-        var output = net.send([ 0, 1 ])
-        var target = 0
+        console.log('\nAND test:')
+        trainAndTest(net, trainingData)
 
-        assert(Math.abs(output - target) < 0.1)
+        done()
+    })
+
+    it('trains OR correctly', function (done) {
+        var net = nn({
+          log: 100
+        })
+
+        var trainingData = [
+          { input: [ 0, 0 ], output: [ 0 ] },
+          { input: [ 0, 1 ], output: [ 1 ] },
+          { input: [ 1, 0 ], output: [ 1 ] },
+          { input: [ 1, 1 ], output: [ 1 ] }
+        ];
+
+        console.log('\nOR test:')
+        trainAndTest(net, trainingData)
 
         done()
     })
@@ -53,21 +67,49 @@ describe('nn', function() {
     it.skip('trains XOR correctly', function (done) {
         var net = nn({
             log: 100,
-            layers: [3,3],
-            iterations: 5000
+            layers: [2],
+            iterations: 5000,
+            learningRate: 1,
+            momentum: 0.5,
+            minimumDelta: 0.0005
         })
 
-        net.train([
+        var trainingData = [
+            { input: [0, 0], output: [0] },
+            { input: [0, 1], output: [1] },
+            { input: [1, 0], output: [1] },
+            { input: [1, 1], output: [0] },
+
             { input: [0, 0], output: [0] },
             { input: [0, 1], output: [1] },
             { input: [1, 0], output: [1] },
             { input: [1, 1], output: [0] }
-        ])
+        ];
 
-        var output = net.send([1, 0])
-
-        console.log('trained output', output)
+        console.log('\nXOR test:')
+        trainAndTest(net, trainingData)
 
         done()
     })
 })
+
+function trainAndTest (net, trainingData) {
+    net.train(trainingData)
+
+    // console.log('net.weights', util.inspect(net.weights, false, 10, true))
+    // console.log('net.biases', util.inspect(net.biases, false, 10, true))
+
+    var failure = null
+
+    trainingData.forEach(function (entry) {
+        var output = net.send(entry.input)
+        console.log(entry.input, 'output:', output)
+
+        var err = Math.abs(entry.output[0] - output)
+
+        if (err > 0.2)
+            failure = 'error too large: ' + err
+    })
+
+    assert(!failure, failure)
+}
