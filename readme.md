@@ -16,7 +16,7 @@ var nn = require('nn')
 var net = nn()
 
 // this example shows how we could train it to approximate sin(x)
-// from a random set of input/output sets.
+// from a random set of input/output data.
 net.train([
     { input: [ 0.5248588903807104 ],    output: [ 0.5010908941521808 ] },
     { input: [ 0 ],                     output: [ 0 ] },            
