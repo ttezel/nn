@@ -40,7 +40,7 @@ The default configuration is shown below:
     layers: [ 3 ],
     // maximum training epochs to perform on the training data
     iterations: 20000,
-    // minimum acceptable error threshold
+    // maximum acceptable error threshold
     errorThresh: 0.0005,
     // activation function ('logistic' and 'hyperbolic' supported)
     activation: 'logistic',
@@ -55,11 +55,16 @@ The default configuration is shown below:
 
 ##`net.train(trainingData)`
 
-Train your `nn` instance, using `trainingData`. You can pass in a single training entry as an object with `input` and `output` keys, or an array of training entries. By default, `nn` will perform 2000 epochs of training on the data passed in, or less if it manages to achieve an error margin of less than `errorThresh` on the data.
+Train your `nn` instance, using `trainingData`. You can pass in a single training entry as an object with `input` and `output` keys, or an array of training entries. The network will train itself from the supplied training data, until the error threshold has been reached, or the max number of iterations has been reached.
 
 ##`net.send(input)`
 
-Send your `nn` instance input data to see its output. Typically you'll want to call this function after training your instance.
+Send your `nn` instance data to see its output. Typically you'll call this function after training your network.
+
+##`net.test(testData)`
+
+Run your neural network against `testData` and returns an object with statistics about the performance of the network against the test data. Typically you'll call this function after training your network.
+
 
 -------
 
