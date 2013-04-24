@@ -1,6 +1,6 @@
 {
   "name": "nn",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Fast and simple neural network for node.js",
   "main": "lib/nn.js",
   "scripts": {
