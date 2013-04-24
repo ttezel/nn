@@ -80,7 +80,7 @@ Sends your neural network the input data and returns its output. `input` is an a
 
 ##`net.test(testData)`
 
-Runs your neural network against `testData` and returns an object with statistics about the performance of the network against the test data. Typically you'll call this function after training your network.
+Runs your neural network against `testData` and returns an object with statistics about the performance of the network against the test data. `testData` can be a single object with `input` and `output` keys, or an array of those objects. Typically you'll call this function after training your network.
 
 
 -------
