@@ -40,7 +40,7 @@ net.train([
     { input: [ 0.22471809106646107 ],   output: [ 0.222831550102815 ] } 
 ])
 
-// send it an input array to see its trained output
+// send it a new input to see its trained output
 var output = net.send([ 0.5 ]) // => 0.48031129953896595
 ```
 
