@@ -76,11 +76,11 @@ Train your `nn` instance, using `trainingData`. You can pass in a single trainin
 
 ##`net.send(input)`
 
-Send your `nn` instance data to see its output. Typically you'll call this function after training your network.
+Sends your neural network the input data and returns its output. `input` is an array of numbers. Typically you'll call this function after training your network.
 
 ##`net.test(testData)`
 
-Run your neural network against `testData` and returns an object with statistics about the performance of the network against the test data. Typically you'll call this function after training your network.
+Runs your neural network against `testData` and returns an object with statistics about the performance of the network against the test data. Typically you'll call this function after training your network.
 
 
 -------
