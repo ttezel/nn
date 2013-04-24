@@ -38,16 +38,16 @@ The default configuration is shown below:
 {
     // hidden layers eg. [ 4, 3 ] => 2 hidden layers, with 4 neurons in the first, and 3 in the second.
     layers: [ 3 ],
-    // training epochs to perform on the training data
+    // maximum training epochs to perform on the training data
     iterations: 20000,
     // minimum acceptable error threshold
-    errorThresh: 0.005,
+    errorThresh: 0.0005,
     // activation function ('logistic' and 'hyperbolic' supported)
     activation: 'logistic',
     // learning rate
-    learningRate: 0.3,
+    learningRate: 0.4,
     // learning momentum
-    momentum: 0.1,
+    momentum: 0.5,
     // initial bias value for each neuron
     bias: 0.1,
     // logging frequency to show training progress. 0 = never, 10 = every 10 iterations.
