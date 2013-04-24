@@ -3,7 +3,8 @@ var assert = require('assert'),
     util = require('util')
 
 describe('nn', function() {
-    it('creates weights/biases matrices properly', function (done) {
+
+    it('initializes weights/biases matrices properly', function (done) {
         var net = nn({
             layers: [ 5, 4 ],
             iterations: 2
@@ -59,6 +60,25 @@ describe('nn', function() {
         ];
 
         console.log('\nOR test:')
+        trainAndTest(net, trainingData)
+
+        done()
+    })
+
+    it('trains XOR correctly', function (done) {
+        var net = nn({
+            log: 0,
+            layers: [2]
+        })
+
+        var trainingData = [
+            { input: [0, 0], output: [0] },
+            { input: [0, 1], output: [1] },
+            { input: [1, 0], output: [1] },
+            { input: [1, 1], output: [0] },
+        ];
+
+        console.log('\nXOR test:')
         trainAndTest(net, trainingData)
 
         done()
@@ -122,25 +142,6 @@ describe('nn', function() {
         console.log('\n nn regression output: %s. desired output: %s. MSE value: %s', stat.output, stat.desiredOutput, stats.mse)
 
         assert(stats.mse < 0.001)
-
-        done()
-    })
-
-    it('trains XOR correctly', function (done) {
-        var net = nn({
-            log: 0,
-            layers: [2]
-        })
-
-        var trainingData = [
-            { input: [0, 0], output: [0] },
-            { input: [0, 1], output: [1] },
-            { input: [1, 0], output: [1] },
-            { input: [1, 1], output: [0] },
-        ];
-
-        console.log('\nXOR test:')
-        trainAndTest(net, trainingData)
 
         done()
     })
