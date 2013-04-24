@@ -30,7 +30,7 @@ describe('nn', function() {
 
     it('trains AND correctly', function (done) {
         var net = nn({
-          log: 100
+          log: 0
         })
 
         var trainingData = [
@@ -48,7 +48,7 @@ describe('nn', function() {
 
     it('trains OR correctly', function (done) {
         var net = nn({
-          log: 100
+          log: 0
         })
 
         var trainingData = [
@@ -85,24 +85,21 @@ describe('nn', function() {
 
         net.train(trainingData)
 
-        var interpolation = net.send([ 0.5 ])
+        var stats = net.test({ input: [ 0.5 ], output: [ 0.5 ] })
 
-        console.log('interpolation', interpolation)
+        var stat = stats.results[0];
 
-        var err = 0.5 - interpolation
-        assert(Math.abs(err) < 0.1, 'interpolation error too large: '+err)
+        console.log('\n nn interpolation output: %s. desired output: %s. MSE value: %s', stat.output, stat.desiredOutput, stats.mse)
+
+        assert(stats.mse < 0.01)
 
         done()
     })
 
-    it.skip('trains XOR correctly', function (done) {
+    it('trains XOR correctly', function (done) {
         var net = nn({
-            log: 100,
-            layers: [2],
-            iterations: 5000,
-            learningRate: 1,
-            momentum: 0.5,
-            minimumDelta: 0.0005
+            log: 0,
+            layers: [2]
         })
 
         var trainingData = [
@@ -110,11 +107,6 @@ describe('nn', function() {
             { input: [0, 1], output: [1] },
             { input: [1, 0], output: [1] },
             { input: [1, 1], output: [0] },
-
-            { input: [0, 0], output: [0] },
-            { input: [0, 1], output: [1] },
-            { input: [1, 0], output: [1] },
-            { input: [1, 1], output: [0] }
         ];
 
         console.log('\nXOR test:')
@@ -138,7 +130,7 @@ function trainAndTest (net, trainingData) {
 
         var err = Math.abs(entry.output[0] - output)
 
-        if (err > 0.2)
+        if (err > 0.1)
             failure = 'error too large: ' + err
     })
 

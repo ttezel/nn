@@ -38,8 +38,6 @@ The default configuration is shown below:
 {
     // hidden layers eg. [ 4, 3 ] => 2 hidden layers, with 4 neurons in the first, and 3 in the second.
     layers: [ 3 ],
-    // initial weight on each connection
-    weight: 0.1,
     // training epochs to perform on the training data
     iterations: 20000,
     // minimum acceptable error threshold
