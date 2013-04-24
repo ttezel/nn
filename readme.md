@@ -1,6 +1,6 @@
 #`nn`
 
-#Simple, fast Neural Network for node.js
+#Fast and simple Neural Network for node.js
 
 #Install
 ```

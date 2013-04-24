@@ -1,7 +1,7 @@
 {
   "name": "nn",
-  "version": "0.0.1",
-  "description": "Simple, flexible neural network for node.js",
+  "version": "0.0.2",
+  "description": "Fast and simple neural network for node.js",
   "main": "lib/nn.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha -R spec -t 10000"
@@ -12,9 +12,12 @@
   },
   "keywords": [
     "neural",
-    "net",
     "network",
-    "AI"
+    "net",
+    "AI",
+    "regression",
+    "pattern",
+    "recognition"
   ],
   "author": "Tolga Tezel",
   "license": "MIT",
