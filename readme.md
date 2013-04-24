@@ -2,12 +2,12 @@
 
 #Simple, fast Neural Network for node.js
 
-##Install
+#Install
 ```
 npm install nn
 ```
 
-##Usage
+#Usage
 ```javascript
 var nn = require('nn')
 
@@ -27,9 +27,9 @@ net.train([
 var output = net.send([0.1, 0.2])
 ```
 
-##API
+#methods
 
-###`nn(opts)`
+##`var net = nn(opts)`
 
 Creates a Neural Network instance. Pass in an optional `opts` object to configure the instance. Any values specified in `opts` will override the corresponding defaults.
 
@@ -41,7 +41,7 @@ The default configuration is shown below:
     // initial weight on each connection
     weight: 0.1,
     // training epochs to perform on the training data
-    iterations: 2000,
+    iterations: 20000,
     // minimum acceptable error threshold
     errorThresh: 0.005,
     // activation function ('logistic' and 'hyperbolic' supported)
@@ -57,17 +57,17 @@ The default configuration is shown below:
 }
 ```
 
-###`.train(trainingData)`
+##`net.train(trainingData)`
 
 Train your `nn` instance, using `trainingData`. You can pass in a single training entry as an object with `input` and `output` keys, or an array of training entries. By default, `nn` will perform 2000 epochs of training on the data passed in, or less if it manages to achieve an error margin of less than `errorThresh` on the data.
 
-###`.send(input)`
+##`net.send(input)`
 
 Send your `nn` instance input data to see its output. Typically you'll want to call this function after training your instance.
 
 -------
 
-## License 
+# License 
 
 (The MIT License)
 
