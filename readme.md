@@ -82,6 +82,14 @@ Sends your neural network the input data and returns its output. `input` is an a
 
 Runs your neural network against `testData` and returns an object with statistics about the performance of the network against the test data. `testData` can be a single object with `input` and `output` keys, or an array of those objects. Typically you'll call this function after training your network.
 
+##`net.toJson()`
+
+Returns a JSON string representing the state of the neural network. You can later use `nn.fromJson()` to get back the neural network from the JSON string.
+
+##`nn.fromJson(jsonString)`
+
+Load a neural network instance from the JSON representation. Pass in `jsonString` as a string.
+
 
 -------
 
