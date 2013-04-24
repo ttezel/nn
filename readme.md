@@ -48,8 +48,6 @@ The default configuration is shown below:
     learningRate: 0.4,
     // learning momentum
     momentum: 0.5,
-    // initial bias value for each neuron
-    bias: 0.1,
     // logging frequency to show training progress. 0 = never, 10 = every 10 iterations.
     log: 0   
 }
