@@ -64,7 +64,7 @@ describe('nn', function() {
         done()
     })
 
-    it('interpolates correctly', function (done) {
+    it('trains linear correctly: y = x', function (done) {
         var net = nn({
           log: 0
         })
@@ -92,6 +92,34 @@ describe('nn', function() {
         console.log('\n nn interpolation output: %s. desired output: %s. MSE value: %s', stat.output, stat.desiredOutput, stats.mse)
 
         assert(stats.mse < 0.01)
+
+        done()
+    })
+
+    it('trains linear extrapolation correctly: y = 0.11x + 0.7', function (done) {
+        var net = nn({
+            log: 100,
+        })
+
+        var trainingData = [
+            { input: [ 0 ], output: [ 0.7 ] },
+            { input: [ 0.1 ], output: [ 0.711 ] },
+            { input: [ 0.2 ], output: [ 0.722 ] },
+            { input: [ 0.3 ], output: [ 0.733 ] },
+            { input: [ 0.4 ], output: [ 0.744 ] }
+        ];
+
+        net.train(trainingData)
+
+        var stats = net.test([
+            { input: [ 0.5 ], output: [ 0.7055 ] }
+        ])
+
+        var stat = stats.results[0];
+
+        console.log('\n nn regression output: %s. desired output: %s. MSE value: %s', stat.output, stat.desiredOutput, stats.mse)
+
+        assert(stats.mse < 0.001)
 
         done()
     })
