@@ -96,23 +96,25 @@ describe('nn', function() {
         done()
     })
 
-    it('trains linear extrapolation correctly: y = 0.11x + 0.7', function (done) {
+    it('trains linear interpolation correctly: y = 0.7x + 0.11', function (done) {
         var net = nn({
-            log: 100,
+            log: 0,
+            errorThresh: 0.00001,
+            momentum: 0.8
         })
 
         var trainingData = [
-            { input: [ 0 ], output: [ 0.7 ] },
-            { input: [ 0.1 ], output: [ 0.711 ] },
-            { input: [ 0.2 ], output: [ 0.722 ] },
-            { input: [ 0.3 ], output: [ 0.733 ] },
-            { input: [ 0.4 ], output: [ 0.744 ] }
+            { input: [ 0 ], output: [ 0.11 ] },
+            { input: [ 0.1 ], output: [ 0.18 ] },
+            { input: [ 0.2 ], output: [ 0.25 ] },
+            { input: [ 0.3 ], output: [ 0.32 ] },
+            { input: [ 0.4 ], output: [ 0.39 ] }
         ];
 
         net.train(trainingData)
 
         var stats = net.test([
-            { input: [ 0.5 ], output: [ 0.7055 ] }
+            { input: [ 0.25 ], output: [ 0.285 ] }
         ])
 
         var stat = stats.results[0];
