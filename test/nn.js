@@ -64,6 +64,37 @@ describe('nn', function() {
         done()
     })
 
+    it('interpolates correctly', function (done) {
+        var net = nn({
+          log: 0
+        })
+
+        var trainingData = [
+          { input: [ 0 ], output: [ 0 ] },
+          { input: [ 0.1 ], output: [ 0.1 ] },
+          { input: [ 0.2 ], output: [ 0.2 ] },
+          { input: [ 0.3 ], output: [ 0.3 ] },
+          { input: [ 0.4 ], output: [ 0.4 ] },
+
+          { input: [ 0.6 ], output: [ 0.6 ] },
+          { input: [ 0.7 ], output: [ 0.7 ] },
+          { input: [ 0.8 ], output: [ 0.8 ] },
+          { input: [ 0.9 ], output: [ 0.9 ] },
+          { input: [ 1 ], output: [ 1 ] }
+        ];
+
+        net.train(trainingData)
+
+        var interpolation = net.send([ 0.5 ])
+
+        console.log('interpolation', interpolation)
+
+        var err = 0.5 - interpolation
+        assert(Math.abs(err) < 0.1, 'interpolation error too large: '+err)
+
+        done()
+    })
+
     it.skip('trains XOR correctly', function (done) {
         var net = nn({
             log: 100,
