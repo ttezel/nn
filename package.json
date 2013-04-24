@@ -17,7 +17,8 @@
     "AI",
     "regression",
     "pattern",
-    "recognition"
+    "recognition",
+    "classification"
   ],
   "author": "Tolga Tezel",
   "license": "MIT",
