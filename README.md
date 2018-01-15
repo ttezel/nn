@@ -1,15 +1,15 @@
-#`nn`
+# `nn`
 
-#Fast and simple Neural Network for node.js
+# Fast and simple Neural Network for node.js
 
 `nn` is a Neural Network library built for performance and ease of use. It is easy to configure and has sane defaults. You can use it for tasks such as pattern recognition and function approximation. 
 
-#Install
-```
-npm install nn
+# Install
+```console
+$ npm install nn
 ```
 
-#Usage
+# Usage
 ```javascript
 var nn = require('nn')
 
@@ -44,9 +44,9 @@ net.train([
 var output = net.send([ 0.5 ]) // => 0.48031129953896595
 ```
 
-#methods
+# methods
 
-##`var net = nn(opts)`
+## `var net = nn(opts)`
 
 Creates a Neural Network instance. Pass in an optional `opts` object to configure the instance. Any values specified in `opts` will override the corresponding defaults.
 
@@ -70,23 +70,23 @@ The default configuration is shown below:
 }
 ```
 
-##`net.train(trainingData)`
+## `net.train(trainingData)`
 
 Train your `nn` instance, using `trainingData`. You can pass in a single training entry as an object with `input` and `output` keys, or an array of training entries. The network will train itself from the supplied training data, until the error threshold has been reached, or the max number of iterations has been reached.
 
-##`net.send(input)`
+## `net.send(input)`
 
 Sends your neural network the input data and returns its output. `input` is an array of numbers. Typically you'll call this function after training your network.
 
-##`net.test(testData)`
+## `net.test(testData)`
 
 Runs your neural network against `testData` and returns an object with statistics about the performance of the network against the test data. `testData` can be a single object with `input` and `output` keys, or an array of those objects. Typically you'll call this function after training your network.
 
-##`net.toJson()`
+## `net.toJson()`
 
 Returns a JSON string representing the state of the neural network. You can later use `nn.fromJson()` to get back the neural network from the JSON string.
 
-##`nn.fromJson(jsonString)`
+## `nn.fromJson(jsonString)`
 
 Load a neural network instance from the JSON representation. Pass in `jsonString` as a string.
 
