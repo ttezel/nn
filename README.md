@@ -1,17 +1,17 @@
-#`nn`
+#`simple-nn`
 
 #Fast and simple Neural Network for node.js
 
-`nn` is a Neural Network library built for performance and ease of use. It is easy to configure and has sane defaults. You can use it for tasks such as pattern recognition and function approximation. 
+`simple-nn` is a Neural Network library built for performance and ease of use. It is easy to configure and has sane defaults. You can use it for tasks such as pattern recognition and function approximation. 
 
 #Install
 ```
-npm install nn
+npm install simple-nn
 ```
 
 #Usage
 ```javascript
-var nn = require('nn')
+var nn = require('simple-nn')
 
 var net = nn()
 
@@ -72,7 +72,7 @@ The default configuration is shown below:
 
 ##`net.train(trainingData)`
 
-Train your `nn` instance, using `trainingData`. You can pass in a single training entry as an object with `input` and `output` keys, or an array of training entries. The network will train itself from the supplied training data, until the error threshold has been reached, or the max number of iterations has been reached.
+Train your neural network instance, using `trainingData`. You can pass in a single training entry as an object with `input` and `output` keys, or an array of training entries. The network will train itself from the supplied training data, until the error threshold has been reached, or the max number of iterations has been reached.
 
 ##`net.send(input)`
 
