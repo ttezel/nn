@@ -1,17 +1,17 @@
-# `simple-nn`
+# `nn`
 
 # Fast and simple Neural Network for node.js
 
-`simple-nn` is a Neural Network library built for performance and ease of use. It is easy to configure and has sane defaults. You can use it for tasks such as pattern recognition and function approximation. 
+`nn` is a Neural Network library built for performance and ease of use. It is easy to configure and has sane defaults. You can use it for tasks such as pattern recognition and function approximation. 
 
 # Install
 ```
-npm install simple-nn
+npm install nn
 ```
 
 # Usage
 ```javascript
-var nn = require('simple-nn')
+var nn = require('nn')
 
 var net = nn()
 
